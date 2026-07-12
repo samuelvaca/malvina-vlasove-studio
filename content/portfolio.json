@@ -4,9 +4,7 @@
     { "image": "/images/uploads/portfolio-2.jpg", "alt": "Popelavý blond melír s vlnami" },
     { "image": "/images/uploads/portfolio-3.jpg", "alt": "Karamelový balayage s texturovanými vlnami" },
     { "image": "/images/uploads/portfolio-4.jpg", "alt": "Měděně červené barvení s vlnami" },
-    { "image": "/images/uploads/portfolio-5.jpg", "alt": "Blond melír, hladký styling" },
-    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+6&font=raleway", "alt": "Portfolio 6" },
-    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+7&font=raleway", "alt": "Portfolio 7" },
-    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+8&font=raleway", "alt": "Portfolio 8" }
+    { "image": "/images/uploads/portfolio-5.jpg", "alt": "Dlouhé rovné blond vlasy s jemným melírem" },
+    { "image": "/images/uploads/portfolio-6.png", "alt": "Tmavě vínové kudrnaté vlasy s výraznou texturou" }
   ]
 }

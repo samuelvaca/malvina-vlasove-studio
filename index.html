@@ -117,6 +117,14 @@
   }
   .img-frame:hover img { transform: scale(1.04); }
 
+  .portfolio-tile {
+    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .portfolio-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 10px rgba(24,20,15,0.08), 0 30px 60px -16px rgba(24,20,15,0.22);
+  }
+
   .icon-btn { transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms; }
   .icon-btn:hover { transform: translateY(-3px); opacity: 0.75; }
   .icon-btn:focus-visible { outline: 2px solid #8c7c62; outline-offset: 3px; }
@@ -351,15 +359,13 @@
       <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight">Portfolio</h2>
     </div>
 
-    <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-1.jpg" alt="Hnědý balayage s jemnými vlnami" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-2.jpg" alt="Popelavý blond melír s vlnami" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-3.jpg" alt="Karamelový balayage s texturovanými vlnami" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-4.jpg" alt="Měděně červené barvení s vlnami" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-5.jpg" alt="Blond melír, hladký styling" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+6&font=raleway" alt="Portfolio 6" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+7&font=raleway" alt="Portfolio 7" /></div>
-      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+8&font=raleway" alt="Portfolio 8" /></div>
+    <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-1.jpg" alt="Hnědý balayage s jemnými vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-2.jpg" alt="Popelavý blond melír s vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-3.jpg" alt="Karamelový balayage s texturovanými vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-4.jpg" alt="Měděně červené barvení s vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-5.jpg" alt="Dlouhé rovné blond vlasy s jemným melírem" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-6.png" alt="Tmavě vínové kudrnaté vlasy s výraznou texturou" /></div>
     </div>
   </div>
 </section>
@@ -563,7 +569,7 @@
 
     if (portfolio && Array.isArray(portfolio.items) && portfolio.items.length) {
       document.getElementById('portfolio-grid').innerHTML = portfolio.items.map(g => `
-        <div class="img-frame aspect-square rounded-xl shadow-soft">
+        <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft">
           <img class="portfolio-img w-full h-full object-cover" src="${g.image || ''}" alt="${g.alt || ''}" />
         </div>
       `).join('');

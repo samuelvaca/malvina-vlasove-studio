@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Malvína Vlasové Studio — Kadeřnické studio Náklo</title>
+<meta name="description" content="Malvína Vlasové Studio — kadeřnické studio v Náklu. Individuální přístup, prémiová péče o vlasy a více než 30 let zkušeností." />
+
+<!-- Netlify Identity: enables the invite/login redirect flow used by the /admin CMS -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#18140f',
+          paper: '#fffdfa',
+          mist: '#f4f0e9',
+          line: '#e7e0d3',
+          taupe: {
+            DEFAULT: '#8c7c62',
+            dark: '#6f6249',
+            light: '#c9bc9f'
+          },
+          muted: '#6b6459'
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          sans: ['"Inter"', 'sans-serif']
+        },
+        transitionTimingFunction: {
+          spring: 'cubic-bezier(0.16, 1, 0.3, 1)'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background-color: #fffdfa; }
+  h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
+
+  .shadow-soft { box-shadow: 0 1px 2px rgba(24,20,15,0.05), 0 2px 8px -2px rgba(24,20,15,0.06); }
+  .shadow-elevated { box-shadow: 0 2px 4px rgba(24,20,15,0.05), 0 12px 28px -8px rgba(24,20,15,0.14); }
+  .shadow-floating { box-shadow: 0 4px 10px rgba(24,20,15,0.08), 0 30px 60px -16px rgba(24,20,15,0.22); }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .btn-primary {
+    background-color: #18140f;
+    color: #fffdfa;
+    transition-property: transform, opacity, box-shadow, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-primary:hover { background-color: #2c2620; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(24,20,15,0.35); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary:focus-visible { outline: 2px solid #8c7c62; outline-offset: 3px; }
+
+  .btn-outline {
+    border: 1px solid #18140f;
+    color: #18140f;
+    background-color: transparent;
+    transition-property: transform, opacity, background-color, color;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-outline:hover { background-color: #18140f; color: #fffdfa; transform: translateY(-2px); }
+  .btn-outline:active { transform: translateY(0); }
+  .btn-outline:focus-visible { outline: 2px solid #8c7c62; outline-offset: 3px; }
+
+  .nav-link {
+    position: relative;
+    color: #18140f;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background-color: #8c7c62;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+  .nav-link:focus-visible { outline: 2px solid #8c7c62; outline-offset: 4px; border-radius: 2px; }
+
+  .card-hover {
+    transition-property: transform, box-shadow;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-hover:hover { transform: translateY(-6px); }
+
+  .img-frame {
+    background-color: #ece6d9;
+    overflow: hidden;
+  }
+  .img-frame img {
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .img-frame:hover img { transform: scale(1.04); }
+
+  .icon-btn { transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms; }
+  .icon-btn:hover { transform: translateY(-3px); opacity: 0.75; }
+  .icon-btn:focus-visible { outline: 2px solid #8c7c62; outline-offset: 3px; }
+
+  #mobile-menu { transition: max-height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms; }
+
+  ::selection { background-color: #c9bc9f; color: #18140f; }
+</style>
+</head>
+
+<body class="bg-paper text-ink antialiased">
+<div class="noise-overlay"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="site-header" class="sticky top-0 z-50 bg-paper/90 backdrop-blur-sm border-b border-line">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#" class="font-display text-xl md:text-2xl tracking-tight text-ink">Malvína <span class="text-taupe">Vlasové Studio</span></a>
+
+    <nav class="hidden md:flex items-center gap-9 text-sm font-medium tracking-wide">
+      <a href="#hero" class="nav-link">Domů</a>
+      <a href="#o-mne" class="nav-link">O mně</a>
+      <a href="#sluzby" class="nav-link">Služby</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#kontakt" class="nav-link">Kontakt</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="tel:776274700" class="btn-primary hidden md:inline-flex px-6 py-2.5 text-sm font-medium rounded-full">Objednat se</a>
+      <button id="menu-toggle" aria-label="Otevřít menu" aria-expanded="false" class="md:hidden p-2 -mr-2 icon-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 border-t border-line bg-paper">
+    <div class="px-6 py-6 flex flex-col gap-5 text-base font-medium">
+      <a href="#hero" class="mobile-nav-link">Domů</a>
+      <a href="#o-mne" class="mobile-nav-link">O mně</a>
+      <a href="#sluzby" class="mobile-nav-link">Služby</a>
+      <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+      <a href="#kontakt" class="mobile-nav-link">Kontakt</a>
+      <a href="tel:776274700" class="btn-primary text-center px-6 py-3 rounded-full mt-2">Objednat se</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="hero" class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background:
+      radial-gradient(ellipse 60% 50% at 15% 10%, rgba(140,124,98,0.10), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 90% 30%, rgba(140,124,98,0.08), transparent 60%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-2 gap-12 md:gap-10 items-center">
+    <div>
+      <p id="hero-label" class="text-xs md:text-sm tracking-[0.25em] font-semibold text-taupe-dark mb-5">KADEŘNICKÉ STUDIO</p>
+      <h1 id="hero-heading" class="font-display text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] tracking-[-0.03em] mb-6">Péče o vlasy s citem pro detail</h1>
+      <p id="hero-subheading" class="text-muted text-base md:text-lg leading-[1.7] max-w-xl mb-9">Individuální přístup, prémiová péče a více než 30 let zkušeností. Ať už hledáte jemný střih, nebo výraznou proměnu, ve studiu Malvíny najdete čas i pozornost jen pro sebe.</p>
+
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="tel:776274700" id="hero-primary-btn" class="btn-primary px-8 py-3.5 rounded-full text-sm font-medium tracking-wide">Zavolat</a>
+        <a href="#sluzby" id="hero-secondary-btn" class="btn-outline px-8 py-3.5 rounded-full text-sm font-medium tracking-wide">Naše služby</a>
+      </div>
+
+      <div class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-taupe"></span>30+ let praxe</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-taupe"></span>Individuální přístup</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-taupe"></span>Prémiová péče</span>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="img-frame aspect-[4/5] rounded-2xl shadow-floating">
+        <!-- HERO PHOTO placeholder — expected ~900x1100 (4:5 portrait). Replace via admin panel. -->
+        <img id="hero-image" src="https://placehold.co/900x1100/efeae2/8c7c62?text=HERO+FOTO&font=raleway" alt="Hero fotografie studia" class="w-full h-full object-cover" />
+      </div>
+      <div class="absolute -bottom-6 -left-6 hidden sm:block bg-paper border border-line rounded-xl px-6 py-4 shadow-elevated">
+        <p class="font-display text-2xl tracking-tight">30+</p>
+        <p class="text-xs text-muted tracking-wide">let zkušeností</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="sluzby" class="bg-mist py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-14">
+      <p class="text-xs tracking-[0.25em] font-semibold text-taupe-dark mb-4">CO NABÍZÍME</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight">Služby šité na míru vašim vlasům</h2>
+    </div>
+
+    <div id="services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Populated by renderServices(); static fallback below for no-JS / file:// viewing -->
+      <div class="service-card bg-paper rounded-2xl p-8 border border-line shadow-soft card-hover">
+        <p class="font-display text-3xl text-taupe-light mb-6">01</p>
+        <h3 class="font-display text-xl mb-3">Střihy</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Precizní dámské i pánské střihy šité na míru tvaru obličeje, struktuře a růstu vlasů.</p>
+        <p class="text-xs tracking-widest font-semibold text-taupe-dark">PO DOMLUVĚ</p>
+      </div>
+      <div class="service-card bg-paper rounded-2xl p-8 border border-line shadow-soft card-hover">
+        <p class="font-display text-3xl text-taupe-light mb-6">02</p>
+        <h3 class="font-display text-xl mb-3">Barvení</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Od jemných melírů po výrazné barevné proměny, vždy s ohledem na zdraví vlasů.</p>
+        <p class="text-xs tracking-widest font-semibold text-taupe-dark">PO DOMLUVĚ</p>
+      </div>
+      <div class="service-card bg-paper rounded-2xl p-8 border border-line shadow-soft card-hover">
+        <p class="font-display text-3xl text-taupe-light mb-6">03</p>
+        <h3 class="font-display text-xl mb-3">Styling</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Slavnostní i každodenní úprava, která vydrží a sedí přesně tak, jak má.</p>
+        <p class="text-xs tracking-widest font-semibold text-taupe-dark">PO DOMLUVĚ</p>
+      </div>
+      <div class="service-card bg-paper rounded-2xl p-8 border border-line shadow-soft card-hover">
+        <p class="font-display text-3xl text-taupe-light mb-6">04</p>
+        <h3 class="font-display text-xl mb-3">Ošetření vlasů</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Regenerační a výživové kúry pro zdravé, silné a lesklé vlasy.</p>
+        <p class="text-xs tracking-widest font-semibold text-taupe-dark">PO DOMLUVĚ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="o-mne" class="bg-mist py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="relative order-2 md:order-1">
+      <div class="img-frame aspect-[4/5] max-w-md mx-auto rounded-2xl shadow-floating">
+        <!-- PORTRÉT MALVÍNY placeholder — expected ~800x1000 (4:5 portrait). -->
+        <img id="about-portrait" src="https://placehold.co/800x1000/efeae2/8c7c62?text=PORTR%C3%89T+MALV%C3%8DNY&font=raleway" alt="Portrét Malvíny Vacové" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <div class="order-1 md:order-2">
+      <p class="text-xs tracking-[0.25em] font-semibold text-taupe-dark mb-4">O STUDIU</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight mb-6">Poznejte Malvínu</h2>
+      <p id="about-bio" class="text-muted leading-[1.7] mb-8">Malvína Vacová se péči o vlasy věnuje více než 30 let. Za tu dobu si vybudovala pověst kadeřnice, která si na každého klienta udělá čas, pozorně naslouchá a najde přesně ten střih či barvu, ve které se budete cítit sami sebou. Neustále se vzdělává v nových technikách a trendech, aby vám mohla nabídnout to nejlepší z klasických i moderních přístupů.</p>
+
+      <ul id="about-highlights" class="space-y-3">
+        <li class="flex items-center gap-3 text-sm font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          Individuální přístup ke každému klientovi
+        </li>
+        <li class="flex items-center gap-3 text-sm font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          Moderní i klasické techniky
+        </li>
+        <li class="flex items-center gap-3 text-sm font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          Klid a pohodlí studia
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIFFERENTIATORS ================= -->
+<section class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="img-frame aspect-[4/3] rounded-2xl shadow-elevated">
+      <!-- INTERIÉR STUDIA placeholder — expected ~1000x800 (4:3 landscape). -->
+      <img id="differentiators-image" src="https://placehold.co/1000x800/efeae2/8c7c62?text=INTERI%C3%89R+STUDIA&font=raleway" alt="Interiér studia" class="w-full h-full object-cover" />
+    </div>
+
+    <div>
+      <p class="text-xs tracking-[0.25em] font-semibold text-taupe-dark mb-4">PROČ MY</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight mb-8">Co nás odlišuje</h2>
+
+      <ul id="differentiators-list" class="space-y-4">
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          <span class="text-base">Osobní a individuální přístup</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          <span class="text-base">Prémiové produkty</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          <span class="text-base">Klidné a příjemné prostředí</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          <span class="text-base">Flexibilní termíny po domluvě</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          <span class="text-base">Více než 30 let zkušeností</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="bg-mist py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-14 text-center mx-auto">
+      <p class="text-xs tracking-[0.25em] font-semibold text-taupe-dark mb-4">REFERENCE</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight">Reference klientů</h2>
+    </div>
+
+    <div id="testimonials-grid" class="max-w-xl mx-auto">
+      <div class="testimonial-card bg-paper rounded-2xl p-8 md:p-10 border border-line shadow-elevated card-hover">
+        <div class="flex items-start justify-between gap-4 mb-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-taupe-light/40 flex items-center justify-center font-display text-lg text-taupe-dark flex-shrink-0">J</div>
+            <div>
+              <p class="font-medium text-ink leading-tight">Jiří Šimara</p>
+              <p class="text-xs text-muted mt-1">AC PODLAHY · 9 recenzí · 1 fotka</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 text-xs text-muted flex-shrink-0">
+            <span class="w-5 h-5 rounded-full border border-line flex items-center justify-center font-display text-[11px] text-taupe-dark">G</span>
+            Google recenze
+          </div>
+        </div>
+
+        <div class="stars flex gap-1 text-taupe mb-4">★★★★★</div>
+        <p class="text-ink leading-[1.7] mb-4">„Naprostá spokojenost v každém směru. Profesionální vše. Mohu jen a jen doporučit.“</p>
+        <p class="text-xs text-muted">před 3 měsíci</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-14">
+      <p class="text-xs tracking-[0.25em] font-semibold text-taupe-dark mb-4">NAŠE PRÁCE</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight">Portfolio</h2>
+    </div>
+
+    <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+1&font=raleway" alt="Portfolio 1" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+2&font=raleway" alt="Portfolio 2" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+3&font=raleway" alt="Portfolio 3" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+4&font=raleway" alt="Portfolio 4" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+5&font=raleway" alt="Portfolio 5" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+6&font=raleway" alt="Portfolio 6" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+7&font=raleway" alt="Portfolio 7" /></div>
+      <div class="img-frame aspect-square rounded-xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+8&font=raleway" alt="Portfolio 8" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING CTA ================= -->
+<section id="kontakt" class="relative overflow-hidden bg-ink text-paper py-20 md:py-28">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(140,124,98,0.18), transparent 70%);"></div>
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+    <h2 class="font-display text-3xl md:text-4xl tracking-[-0.03em] leading-tight mb-5">Připraveni na novou proměnu?</h2>
+    <p class="text-white/70 leading-[1.7] mb-10 max-w-xl mx-auto">Ozvěte se a domluvíme si termín, který vám bude vyhovovat. Těším se, že společně najdeme přesně to, co budete potřebovat.</p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 mb-10 text-sm">
+      <a href="tel:776274700" id="contact-phone-link" class="flex items-center gap-2 hover:text-taupe-light transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+        <span id="contact-phone-text">776 274 700</span>
+      </a>
+      <a href="mailto:malvina@vacovi.cz" id="contact-email-link" class="flex items-center gap-2 hover:text-taupe-light transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+        <span id="contact-email-text">malvina@vacovi.cz</span>
+      </a>
+      <span class="flex items-center gap-2 text-white/70">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        Termíny po telefonické domluvě
+      </span>
+    </div>
+
+    <a href="mailto:malvina@vacovi.cz" class="btn-primary inline-flex bg-paper text-ink px-9 py-4 rounded-full text-sm font-medium tracking-wide" style="background-color:#fffdfa; color:#18140f;">Kontaktovat</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-mist border-t border-line">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-12">
+    <div>
+      <p class="font-display text-xl tracking-tight mb-4">Malvína <span class="text-taupe">Vlasové Studio</span></p>
+      <p class="text-muted text-sm leading-relaxed max-w-xs">Kadeřnické studio s individuálním přístupem a více než 30 lety zkušeností. Péče o vlasy, na které si vždy uděláme čas.</p>
+    </div>
+
+    <div>
+      <p class="text-xs tracking-[0.2em] font-semibold text-taupe-dark mb-5">RYCHLÉ ODKAZY</p>
+      <ul class="space-y-3 text-sm">
+        <li><a href="#hero" class="text-muted hover:text-ink transition-colors">Domů</a></li>
+        <li><a href="#o-mne" class="text-muted hover:text-ink transition-colors">O mně</a></li>
+        <li><a href="#sluzby" class="text-muted hover:text-ink transition-colors">Služby</a></li>
+        <li><a href="#portfolio" class="text-muted hover:text-ink transition-colors">Portfolio</a></li>
+        <li><a href="#kontakt" class="text-muted hover:text-ink transition-colors">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs tracking-[0.2em] font-semibold text-taupe-dark mb-5">KONTAKT</p>
+      <ul class="space-y-3 text-sm text-muted">
+        <li id="footer-address">Náklo 367, Česká republika</li>
+        <li><a href="tel:776274700" id="footer-phone" class="hover:text-ink transition-colors">776 274 700</a></li>
+        <li><a href="mailto:malvina@vacovi.cz" id="footer-email" class="hover:text-ink transition-colors">malvina@vacovi.cz</a></li>
+      </ul>
+      <a href="https://www.instagram.com/malvinavacova/" target="_blank" rel="noopener" aria-label="Instagram" class="icon-btn inline-flex items-center justify-center w-10 h-10 rounded-full border border-line mt-5 hover:border-taupe">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="3.5" />
+          <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="border-t border-line py-6 text-center text-xs text-muted">
+    &copy; <span id="footer-year"></span> Malvína Vlasové Studio. Všechna práva vyhrazena.
+  </div>
+</footer>
+
+<script>
+  // ---------- Mobile menu ----------
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let menuOpen = false;
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    menuToggle.setAttribute('aria-expanded', String(menuOpen));
+    if (menuOpen) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+    } else {
+      mobileMenu.style.maxHeight = '0';
+      mobileMenu.style.opacity = '0';
+    }
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.style.maxHeight = '0';
+      mobileMenu.style.opacity = '0';
+    });
+  });
+
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // ---------- CMS content loading ----------
+  // Content authored via the Decap CMS admin panel lives in /content/*.json.
+  // We fetch it on load and, if present, override the hardcoded defaults above
+  // (which keep the page fully functional even when opened without a server).
+  async function loadJSON(path) {
+    try {
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function starString(rating) {
+    const r = Math.max(0, Math.min(5, Number(rating) || 5));
+    return '★'.repeat(r) + '☆'.repeat(5 - r);
+  }
+
+  async function applyContent() {
+    const [hero, services, about, differentiators, testimonials, portfolio, contact] = await Promise.all([
+      loadJSON('content/hero.json'),
+      loadJSON('content/services.json'),
+      loadJSON('content/about.json'),
+      loadJSON('content/differentiators.json'),
+      loadJSON('content/testimonials.json'),
+      loadJSON('content/portfolio.json'),
+      loadJSON('content/contact.json'),
+    ]);
+
+    if (hero) {
+      if (hero.label) document.getElementById('hero-label').textContent = hero.label;
+      if (hero.heading) document.getElementById('hero-heading').textContent = hero.heading;
+      if (hero.subheading) document.getElementById('hero-subheading').textContent = hero.subheading;
+      if (hero.primaryButtonText) document.getElementById('hero-primary-btn').textContent = hero.primaryButtonText;
+      if (hero.secondaryButtonText) document.getElementById('hero-secondary-btn').textContent = hero.secondaryButtonText;
+      if (hero.image) document.getElementById('hero-image').src = hero.image;
+    }
+
+    if (services && Array.isArray(services.items) && services.items.length) {
+      const grid = document.getElementById('services-grid');
+      grid.innerHTML = services.items.map((s, i) => `
+        <div class="service-card bg-paper rounded-2xl p-8 border border-line shadow-soft card-hover">
+          <p class="font-display text-3xl text-taupe-light mb-6">${String(i + 1).padStart(2, '0')}</p>
+          <h3 class="font-display text-xl mb-3">${s.title || ''}</h3>
+          <p class="text-muted text-sm leading-relaxed mb-6">${s.description || ''}</p>
+          <p class="text-xs tracking-widest font-semibold text-taupe-dark">PO DOMLUVĚ</p>
+        </div>
+      `).join('');
+    }
+
+    if (about) {
+      if (about.bio) document.getElementById('about-bio').textContent = about.bio;
+      if (about.portrait) document.getElementById('about-portrait').src = about.portrait;
+      if (Array.isArray(about.highlights) && about.highlights.length) {
+        document.getElementById('about-highlights').innerHTML = about.highlights.map(h => `
+          <li class="flex items-center gap-3 text-sm font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            ${h}
+          </li>
+        `).join('');
+      }
+    }
+
+    if (differentiators) {
+      if (differentiators.image) document.getElementById('differentiators-image').src = differentiators.image;
+      if (Array.isArray(differentiators.items) && differentiators.items.length) {
+        document.getElementById('differentiators-list').innerHTML = differentiators.items.map(d => `
+          <li class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            <span class="text-base">${d}</span>
+          </li>
+        `).join('');
+      }
+    }
+
+    if (testimonials && Array.isArray(testimonials.items) && testimonials.items.length) {
+      document.getElementById('testimonials-grid').innerHTML = testimonials.items.map(t => {
+        const initial = (t.name || '?').trim().charAt(0).toUpperCase();
+        const metaParts = [t.business, t.reviewCount, t.photoCount].filter(Boolean).join(' · ');
+        return `
+        <div class="testimonial-card bg-paper rounded-2xl p-8 md:p-10 border border-line shadow-elevated card-hover mb-6 last:mb-0">
+          <div class="flex items-start justify-between gap-4 mb-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-taupe-light/40 flex items-center justify-center font-display text-lg text-taupe-dark flex-shrink-0">${initial}</div>
+              <div>
+                <p class="font-medium text-ink leading-tight">${t.name || ''}</p>
+                ${metaParts ? `<p class="text-xs text-muted mt-1">${metaParts}</p>` : ''}
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs text-muted flex-shrink-0">
+              <span class="w-5 h-5 rounded-full border border-line flex items-center justify-center font-display text-[11px] text-taupe-dark">G</span>
+              Google recenze
+            </div>
+          </div>
+
+          <div class="stars flex gap-1 text-taupe mb-4">${starString(t.rating)}</div>
+          <p class="text-ink leading-[1.7] mb-4">„${t.quote || ''}“</p>
+          ${t.timeAgo ? `<p class="text-xs text-muted">${t.timeAgo}</p>` : ''}
+        </div>
+      `;
+      }).join('');
+    }
+
+    if (portfolio && Array.isArray(portfolio.items) && portfolio.items.length) {
+      document.getElementById('portfolio-grid').innerHTML = portfolio.items.map(g => `
+        <div class="img-frame aspect-square rounded-xl shadow-soft">
+          <img class="portfolio-img w-full h-full object-cover" src="${g.image || ''}" alt="${g.alt || ''}" />
+        </div>
+      `).join('');
+    }
+
+    if (contact) {
+      if (contact.phone) {
+        const tel = 'tel:' + contact.phone.replace(/\s+/g, '');
+        document.getElementById('contact-phone-text').textContent = contact.phone;
+        document.getElementById('contact-phone-link').href = tel;
+        document.getElementById('footer-phone').textContent = contact.phone;
+        document.getElementById('footer-phone').href = tel;
+      }
+      if (contact.email) {
+        document.getElementById('contact-email-text').textContent = contact.email;
+        document.getElementById('contact-email-link').href = 'mailto:' + contact.email;
+        document.getElementById('footer-email').textContent = contact.email;
+        document.getElementById('footer-email').href = 'mailto:' + contact.email;
+      }
+      if (contact.address) {
+        document.getElementById('footer-address').textContent = contact.address;
+      }
+    }
+  }
+
+  applyContent();
+
+  // ---------- Netlify Identity invite/login redirect ----------
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', user => {
+      if (!user) {
+        window.netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>

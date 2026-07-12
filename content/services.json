@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "title": "Střihy",
+      "description": "Precizní dámské i pánské střihy šité na míru tvaru obličeje, struktuře a růstu vlasů."
+    },
+    {
+      "title": "Barvení",
+      "description": "Od jemných melírů po výrazné barevné proměny, vždy s ohledem na zdraví vlasů."
+    },
+    {
+      "title": "Styling",
+      "description": "Slavnostní i každodenní úprava, která vydrží a sedí přesně tak, jak má."
+    },
+    {
+      "title": "Ošetření vlasů",
+      "description": "Regenerační a výživové kúry pro zdravé, silné a lesklé vlasy."
+    }
+  ]
+}

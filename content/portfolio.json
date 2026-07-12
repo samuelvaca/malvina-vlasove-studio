@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+1&font=raleway", "alt": "Portfolio 1" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+2&font=raleway", "alt": "Portfolio 2" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+3&font=raleway", "alt": "Portfolio 3" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+4&font=raleway", "alt": "Portfolio 4" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+5&font=raleway", "alt": "Portfolio 5" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+6&font=raleway", "alt": "Portfolio 6" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+7&font=raleway", "alt": "Portfolio 7" },
+    { "image": "https://placehold.co/700x700/efeae2/8c7c62?text=PORTFOLIO+8&font=raleway", "alt": "Portfolio 8" }
+  ]
+}

@@ -1,0 +1,117 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded replacement photos are stored / served from.
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "hero"
+    label: "Úvodní sekce (Hero)"
+    files:
+      - file: "content/hero.json"
+        label: "Úvodní sekce"
+        name: "hero"
+        fields:
+          - { label: "Popisek nad nadpisem", name: "label", widget: "string" }
+          - { label: "Hlavní nadpis", name: "heading", widget: "string" }
+          - { label: "Podnadpis (text pod nadpisem)", name: "subheading", widget: "text" }
+          - { label: "Text tlačítka „Zavolat“", name: "primaryButtonText", widget: "string" }
+          - { label: "Text tlačítka „Naše služby“", name: "secondaryButtonText", widget: "string" }
+          - { label: "Hero fotografie", name: "image", widget: "image" }
+
+  - name: "services"
+    label: "Služby"
+    files:
+      - file: "content/services.json"
+        label: "Služby"
+        name: "services"
+        fields:
+          - label: "Seznam služeb"
+            name: "items"
+            widget: "list"
+            label_singular: "Služba"
+            summary: "{{title}}"
+            fields:
+              - { label: "Název služby", name: "title", widget: "string" }
+              - { label: "Popis", name: "description", widget: "text" }
+
+  - name: "about"
+    label: "O mně (Malvína)"
+    files:
+      - file: "content/about.json"
+        label: "O mně"
+        name: "about"
+        fields:
+          - { label: "Text o Malvíně", name: "bio", widget: "text" }
+          - { label: "Portrét fotografie", name: "portrait", widget: "image" }
+          - label: "Zvýrazněné body"
+            name: "highlights"
+            widget: "list"
+            label_singular: "Bod"
+            field: { label: "Text", name: "item", widget: "string" }
+
+  - name: "differentiators"
+    label: "Co nás odlišuje"
+    files:
+      - file: "content/differentiators.json"
+        label: "Co nás odlišuje"
+        name: "differentiators"
+        fields:
+          - { label: "Fotografie interiéru studia", name: "image", widget: "image" }
+          - label: "Seznam odlišností"
+            name: "items"
+            widget: "list"
+            label_singular: "Položka"
+            field: { label: "Text", name: "item", widget: "string" }
+
+  - name: "testimonials"
+    label: "Reference klientů"
+    files:
+      - file: "content/testimonials.json"
+        label: "Reference"
+        name: "testimonials"
+        fields:
+          - label: "Seznam referencí"
+            name: "items"
+            widget: "list"
+            label_singular: "Reference"
+            summary: "{{name}} — {{business}}"
+            fields:
+              - { label: "Jméno klienta", name: "name", widget: "string" }
+              - { label: "Firma / společnost", name: "business", widget: "string", required: false }
+              - { label: "Počet recenzí (např. „9 recenzí“)", name: "reviewCount", widget: "string", required: false }
+              - { label: "Počet fotek (např. „1 fotka“)", name: "photoCount", widget: "string", required: false }
+              - { label: "Doba od zveřejnění (např. „před 3 měsíci“)", name: "timeAgo", widget: "string", required: false }
+              - { label: "Hodnocení (1–5 hvězdiček)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 5 }
+              - { label: "Text reference", name: "quote", widget: "text" }
+
+  - name: "portfolio"
+    label: "Portfolio"
+    files:
+      - file: "content/portfolio.json"
+        label: "Portfolio"
+        name: "portfolio"
+        fields:
+          - label: "Fotografie v portfoliu"
+            name: "items"
+            widget: "list"
+            label_singular: "Fotografie"
+            summary: "{{alt}}"
+            fields:
+              - { label: "Fotografie", name: "image", widget: "image" }
+              - { label: "Alternativní text (popis fotografie)", name: "alt", widget: "string" }
+
+  - name: "contact"
+    label: "Kontaktní údaje"
+    files:
+      - file: "content/contact.json"
+        label: "Kontakt"
+        name: "contact"
+        fields:
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Adresa", name: "address", widget: "string" }

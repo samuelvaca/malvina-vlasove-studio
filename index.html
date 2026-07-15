@@ -191,31 +191,41 @@
       radial-gradient(ellipse 60% 50% at 15% 10%, rgba(140,124,98,0.10), transparent 60%),
       radial-gradient(ellipse 50% 40% at 90% 30%, rgba(140,124,98,0.08), transparent 60%);"></div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-2 gap-12 md:gap-10 items-center">
-    <div>
-      <p id="hero-label" class="text-xs md:text-sm tracking-[0.25em] font-semibold text-taupe-dark mb-5">KADEŘNICKÉ STUDIO</p>
-      <h1 id="hero-heading" class="font-display text-[2.75rem] sm:text-5xl lg:text-[3.4rem] leading-[1.03] sm:leading-[1.08] tracking-[-0.03em] mb-6">Péče o vlasy s citem pro detail</h1>
-      <p id="hero-subheading" class="text-muted text-base md:text-lg leading-[1.7] max-w-xl mb-9">Individuální přístup, prémiová péče a více než 30 let zkušeností. Ať už hledáte jemný střih, nebo výraznou proměnu, ve studiu Malvíny najdete čas i pozornost jen pro sebe.</p>
+  <!-- Mobile-only editorial opener: full-bleed photo flush below the header, so it's the first thing seen (no scrolling required). Desktop keeps the contained side-by-side photo further down instead. -->
+  <div class="md:hidden relative w-full h-[62vh] min-h-[400px] max-h-[560px]">
+    <img src="/images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent"></div>
+  </div>
 
-      <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 mb-12">
-        <a href="tel:776274700" id="hero-primary-btn" class="btn-primary w-full sm:w-auto text-center px-8 py-3.5 rounded-full text-sm font-medium tracking-wide">Zavolat</a>
-        <a href="#sluzby" id="hero-secondary-btn" class="btn-outline w-full sm:w-auto text-center px-8 py-3.5 rounded-full text-sm font-medium tracking-wide">Naše služby</a>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-2 gap-12 md:gap-10 items-center">
+    <div>
+      <p id="hero-label" class="text-[0.65rem] sm:text-sm tracking-[0.15em] sm:tracking-[0.25em] font-medium sm:font-semibold text-taupe-dark mb-4 sm:mb-5">KADEŘNICKÉ STUDIO</p>
+      <h1 id="hero-heading" class="font-display text-[2.75rem] sm:text-5xl lg:text-[3.4rem] leading-[1.03] sm:leading-[1.08] tracking-[-0.04em] sm:tracking-[-0.03em] mb-7 sm:mb-6">Péče o vlasy s citem pro detail</h1>
+      <p id="hero-subheading" class="text-muted text-base md:text-lg leading-[1.7] max-w-xl mb-10 sm:mb-9">Individuální přístup, prémiová péče a více než 30 let zkušeností. Ať už hledáte jemný střih, nebo výraznou proměnu, ve studiu Malvíny najdete čas i pozornost jen pro sebe.</p>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 mb-10 sm:mb-12">
+        <a href="tel:776274700" id="hero-primary-btn" class="btn-primary inline-flex text-center px-9 py-3.5 rounded-full text-sm font-medium tracking-wide">Zavolat</a>
+        <a href="#sluzby" id="hero-secondary-btn" class="group inline-flex items-center gap-1.5 text-sm font-medium text-ink underline decoration-ink/40 underline-offset-4 hover:decoration-ink transition-colors duration-300 sm:no-underline sm:border sm:border-ink sm:rounded-full sm:px-8 sm:py-3.5 sm:tracking-wide sm:hover:bg-ink sm:hover:text-paper">
+          <span id="hero-secondary-btn-text">Naše služby</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 sm:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </a>
       </div>
 
-      <div class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-taupe"></span>30+ let praxe</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-taupe"></span>Individuální přístup</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-taupe"></span>Prémiová péče</span>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs sm:text-sm text-muted tracking-wide">
+        <span>30+ let praxe</span>
+        <span class="w-px h-3 bg-line" aria-hidden="true"></span>
+        <span>Individuální přístup</span>
+        <span class="w-px h-3 bg-line" aria-hidden="true"></span>
+        <span>Prémiová péče</span>
       </div>
     </div>
 
-    <div class="relative -mx-6 sm:mx-0">
-      <!-- Full-bleed on mobile (edge-to-edge, no rounding) for an editorial moment; contained rounded card from sm: up. -->
-      <div class="img-frame aspect-[4/5] rounded-none sm:rounded-2xl shadow-none sm:shadow-floating">
+    <div class="hidden md:block relative">
+      <div class="img-frame aspect-[4/5] rounded-2xl shadow-floating">
         <!-- Real hero photo is portrait, 1242x2208 (9:16) — cropped to the section's 4:5 frame. -->
-        <img id="hero-image" src="/images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="w-full h-full object-cover" />
+        <img id="hero-image" src="/images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="hero-img w-full h-full object-cover" />
       </div>
-      <div class="absolute -bottom-6 left-6 sm:-left-6 hidden sm:block bg-paper border border-line rounded-xl px-6 py-4 shadow-elevated">
+      <div class="absolute -bottom-6 -left-6 bg-paper border border-line rounded-xl px-6 py-4 shadow-elevated">
         <p class="font-display text-2xl tracking-tight">30+</p>
         <p class="text-xs text-muted tracking-wide">let zkušeností</p>
       </div>
@@ -533,8 +543,8 @@
       if (hero.heading) document.getElementById('hero-heading').textContent = hero.heading;
       if (hero.subheading) document.getElementById('hero-subheading').textContent = hero.subheading;
       if (hero.primaryButtonText) document.getElementById('hero-primary-btn').textContent = hero.primaryButtonText;
-      if (hero.secondaryButtonText) document.getElementById('hero-secondary-btn').textContent = hero.secondaryButtonText;
-      if (hero.image) document.getElementById('hero-image').src = hero.image;
+      if (hero.secondaryButtonText) document.getElementById('hero-secondary-btn-text').textContent = hero.secondaryButtonText;
+      if (hero.image) document.querySelectorAll('.hero-img').forEach(img => { img.src = hero.image; });
     }
 
     if (services && Array.isArray(services.items) && services.items.length) {

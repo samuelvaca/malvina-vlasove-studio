@@ -6,9 +6,6 @@
 <title>Malvína Vlasové Studio — Kadeřnické studio Náklo</title>
 <meta name="description" content="Malvína Vlasové Studio — kadeřnické studio v Náklu. Individuální přístup, prémiová péče o vlasy a více než 30 let zkušeností." />
 
-<!-- Netlify Identity: enables the invite/login redirect flow used by the /admin CMS -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,7 +190,7 @@
 
   <!-- Mobile-only editorial opener: full-bleed photo flush below the header, so it's the first thing seen (no scrolling required). Desktop keeps the contained side-by-side photo further down instead. -->
   <div class="md:hidden relative w-full h-[62vh] min-h-[400px] max-h-[560px]">
-    <img src="/images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    <img src="images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="hero-img absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent"></div>
   </div>
 
@@ -223,7 +220,7 @@
     <div class="hidden md:block relative">
       <div class="img-frame aspect-[4/5] rounded-2xl shadow-floating">
         <!-- Real hero photo is portrait, 1242x2208 (9:16) — cropped to the section's 4:5 frame. -->
-        <img id="hero-image" src="/images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="hero-img w-full h-full object-cover" />
+        <img id="hero-image" src="images/uploads/hero-photo.jpg" alt="Malvína Vacová při stříhání vlasů klientky ve studiu" class="hero-img w-full h-full object-cover" />
       </div>
       <div class="absolute -bottom-6 -left-6 bg-paper border border-line rounded-xl px-6 py-4 shadow-elevated">
         <p class="font-display text-2xl tracking-tight">30+</p>
@@ -278,7 +275,7 @@
     <div class="relative">
       <div class="img-frame aspect-[4/5] max-w-md mx-auto rounded-2xl shadow-floating">
         <!-- PORTRÉT MALVÍNY placeholder — expected ~800x1000 (4:5 portrait). -->
-        <img id="about-portrait" src="/images/uploads/portret-malviny.jpg" alt="Malvína Vacová, kadeřnice ve svém studiu" class="w-full h-full object-cover" />
+        <img id="about-portrait" src="images/uploads/portret-malviny.jpg" alt="Malvína Vacová, kadeřnice ve svém studiu" class="w-full h-full object-cover" />
       </div>
     </div>
 
@@ -311,7 +308,7 @@
     <div>
       <div class="img-frame aspect-[3/4] rounded-2xl shadow-elevated">
         <!-- Real interior photo is portrait, 768x1364 — aspect-[3/4] keeps most of the room visible instead of the harsh 4:3 landscape crop used previously. -->
-        <img id="differentiators-image" src="/images/uploads/interier-studia-v2.png" alt="Interiér kadeřnického studia Malvína Vlasové Studio" class="w-full h-full object-cover" style="object-position: center 55%;" />
+        <img id="differentiators-image" src="images/uploads/interier-studia-v2.png" alt="Interiér kadeřnického studia Malvína Vlasové Studio" class="w-full h-full object-cover" style="object-position: center 55%;" />
       </div>
 
       <a href="https://www.instagram.com/reel/DQR-gAXjLcZ/" target="_blank" rel="noopener" class="mt-4 flex items-center gap-4 bg-paper border border-line rounded-2xl p-5 shadow-elevated card-hover">
@@ -405,12 +402,12 @@
 
     <!-- Mobile: staggered 2-col masonry (even tiles offset down). Tablet: plain 2-col. Desktop: 3-col. -->
     <div id="portfolio-grid" class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
-      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-1.jpg" alt="Hnědý balayage s jemnými vlnami" /></div>
-      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft masonry-offset"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-2.jpg" alt="Popelavý blond melír s vlnami" /></div>
-      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-3.jpg" alt="Karamelový balayage s texturovanými vlnami" /></div>
-      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft masonry-offset"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-4.jpg" alt="Měděně červené barvení s vlnami" /></div>
-      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-5.jpg" alt="Dlouhé rovné blond vlasy s jemným melírem" /></div>
-      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft masonry-offset"><img class="portfolio-img w-full h-full object-cover" src="/images/uploads/portfolio-6.png" alt="Tmavě vínové kudrnaté vlasy s výraznou texturou" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="images/uploads/portfolio-1.jpg" alt="Hnědý balayage s jemnými vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft masonry-offset"><img class="portfolio-img w-full h-full object-cover" src="images/uploads/portfolio-2.jpg" alt="Popelavý blond melír s vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="images/uploads/portfolio-3.jpg" alt="Karamelový balayage s texturovanými vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft masonry-offset"><img class="portfolio-img w-full h-full object-cover" src="images/uploads/portfolio-4.jpg" alt="Měděně červené barvení s vlnami" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft"><img class="portfolio-img w-full h-full object-cover" src="images/uploads/portfolio-5.jpg" alt="Dlouhé rovné blond vlasy s jemným melírem" /></div>
+      <div class="img-frame portfolio-tile aspect-[4/5] rounded-2xl shadow-soft masonry-offset"><img class="portfolio-img w-full h-full object-cover" src="images/uploads/portfolio-6.png" alt="Tmavě vínové kudrnaté vlasy s výraznou texturou" /></div>
     </div>
   </div>
 </section>
@@ -508,8 +505,8 @@
 
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  // ---------- CMS content loading ----------
-  // Content authored via the Decap CMS admin panel lives in /content/*.json.
+  // ---------- Content loading ----------
+  // Editable content lives in /content/*.json — edit those files directly.
   // We fetch it on load and, if present, override the hardcoded defaults above
   // (which keep the page fully functional even when opened without a server).
   async function loadJSON(path) {
@@ -645,17 +642,6 @@
   }
 
   applyContent();
-
-  // ---------- Netlify Identity invite/login redirect ----------
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on('init', user => {
-      if (!user) {
-        window.netlifyIdentity.on('login', () => {
-          document.location.href = '/admin/';
-        });
-      }
-    });
-  }
 </script>
 </body>
 </html>
